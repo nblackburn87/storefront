@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: sundries_store_development
+
+test:
+  adapter: postgresql
+  database: sundries_store_test

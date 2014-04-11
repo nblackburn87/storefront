@@ -1,0 +1,10 @@
+<h1>SUNDRIES! SUNDRIES! SUNDRIES!</h1>
+
+<ol type="A">
+<% @products.each do |product| %>
+  <li><%= product.name %></li>
+  <% end %>
+</ol>
+
+<p>ADMIN USE ONLY:</p>
+<%= link_to "Add New Product", new_product_path, :class => "btn btn-primary" %>
