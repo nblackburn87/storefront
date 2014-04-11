@@ -11,11 +11,36 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      flash[:notice] = "New product created!"
-      redirect_to root_url
+      redirect_to product_path(@product)
     else
+      flash[:alert] = "New product not created."
       render 'new'
     end
+  end
+
+  def show
+    @product = Product.find(params[:id])
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      redirect_to product_path(@product)
+    else
+      flash[:alert] = "Product #{@product} did not update. Try again!"
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    flash[:alert] = "#{@product.name} deleted!"
+    redirect_to root_url
   end
 
   private

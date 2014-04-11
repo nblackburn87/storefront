@@ -2,7 +2,7 @@
 
 <ol type="A">
 <% @products.each do |product| %>
-  <li><%= product.name %></li>
+  <li><%= link_to product.name, product_path(product) %></li>
   <% end %>
 </ol>
 
