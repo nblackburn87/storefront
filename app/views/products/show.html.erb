@@ -2,8 +2,10 @@
 
 <p><%= @product.description %></p>
 
-<p><%= link_to "Edit this product", edit_product_path, :class => "btn btn-default" %>
-<p><%= link_to "Delete this product", product_path(@product),
-                                      method: "delete",
-                                      :class => "btn btn-default" %></p>
+<% if current_user != nil %>
+  <p><%= link_to "Edit this product", edit_product_path, :class => "btn btn-default" %>
+  <p><%= link_to "Delete this product", product_path(@product),
+                                        :method => "delete",
+                                        :class => "btn btn-default" %></p>
+<% end %>
 <p><%= link_to "Return to Store Front", products_path, :class => "btn btn-primary" %>

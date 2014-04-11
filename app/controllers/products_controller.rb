@@ -1,7 +1,9 @@
 class ProductsController < ApplicationController
 
+  before_filter :authorize, only: [:new, :create, :edit, :update, :destroy]
+
   def index
-    @products = Product.all
+    @products = Product.all.sort_by &:name
   end
 
   def new
