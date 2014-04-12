@@ -1,6 +1,7 @@
 <h1><%= @product.name %>, $<%= number_with_precision(@product.price, precision: 2) %></h1>
 
-<p><%= @product.description %></p>
+<p><%= @product.description %></p><br />
+<p><%= image_tag @product.index.url(:medium) %></p>
 
 <% if current_user != nil %>
   <p><%= link_to "Edit this product", edit_product_path, :class => "btn btn-default" %>
